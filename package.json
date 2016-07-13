@@ -32,6 +32,7 @@
   "homepage": "",
   "dependencies": {
     "autoprefixer-loader": "^3.2.0",
+    "axios": "^0.13.0",
     "axis": "^0.6.1",
     "babel-cli": "^6.9.0",
     "babel-core": "^6.9.0",
