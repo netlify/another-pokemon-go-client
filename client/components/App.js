@@ -32,7 +32,7 @@ export class Home extends React.Component {
 
   fetchStatus() {
     // const url = 'http://localhost:5000/?json=true';
-    const url = 'https://is-pokemon-go-up-api-cbfukvbvey.now.sh/?json=true';
+    const url = 'https://is-pokemon-go-up-api-dsvvshogcu.now.sh/?json=true';
     const init = {
       method: 'GET',
       headers: {},
