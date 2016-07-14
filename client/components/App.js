@@ -78,7 +78,7 @@ export class Home extends React.Component {
         <div className="image">
           <img src={gifSelector(status)} />
         </div>
-        {status !== "checking status" && <a href="https://github.com/sotojuan/is-pokemon-go-up" target="_blank"><small>made from open source</small></a>}
+        {status !== "checking status" && <a href="https://github.com/sotojuan/is-pokemon-go-up" target="_blank"><small>made with the open source sotojuan/is-pokemon-go-up project</small></a>}
       </div>
     );
   }
