@@ -1,20 +1,18 @@
 @require '../lib/vars.styl'
 
-*
-  box-sizing border-box
-
 body
   background white
   font 300 normal 16px/1.5 Roboto, sans-serif
   padding 20px 40px
 
-
-h1
-  margin 20px 0
+img
+  padding-top 25px
+  max-width 500px
 
 h2
   color: #00c7b7
   font-size: 35px
+  margin-bottom auto
 
 .hl
   font-weight bold
@@ -28,3 +26,10 @@ h2
   p
     color white
 
+@media (max-width: 500px)
+  img
+    max-width 300px
+
+  .App
+    min-width 320px
+    padding 20px 10px
