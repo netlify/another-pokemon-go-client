@@ -31,8 +31,7 @@ export class Home extends React.Component {
   }
 
   fetchStatus() {
-    // const url = 'http://localhost:5000/?json=true';
-    const url = 'https://is-pokemon-go-up-api-dsvvshogcu.now.sh/?json=true';
+    const url = 'https://is-pokemon-go-up-api-twmxolopir.now.sh/?json=true';
     const init = {
       method: 'GET',
       headers: {},
@@ -49,9 +48,8 @@ export class Home extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
-      <div class='Main'>
+      <div className='Main'>
         <h2 id='title'>Is Pokémon Go Up?</h2>
         {this.state.status}
       </div>
@@ -69,11 +67,6 @@ export class NotFound extends React.Component {
   }
 }
 
-/**
- * NOTE: As of 2015-11-09 react-transform does not support a functional
- * component as the base compoenent that's passed to ReactDOM.render, so we
- * still use createClass here.
- */
 export class App extends React.Component {
   static propTypes = {
     children: PropTypes.any,
