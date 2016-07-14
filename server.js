@@ -22,6 +22,18 @@ const Html = ({
       <meta charSet="utf-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <meta name="twitter:title" content="Is Pokémon Go Up?">
+      <meta name="twitter:creator" content="@bdougieYO">
+      <meta name="twitter:image" content="https://66.media.tumblr.com/50812e936f6118e3577c990c2bca4341/tumblr_mwpotprvIW1rjenv2o1_500.gif">
+
+      <meta property="og:title" content="Is Pokémon Go Up?" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="https://ispokemon.live" />
+      <meta property="og:image" content="https://66.media.tumblr.com/50812e936f6118e3577c990c2bca4341/tumblr_mwpotprvIW1rjenv2o1_500.gif" />
+      <meta property="og:description" content="Trying to play Pokémon, but the servers are down?" /> 
+      <meta property="og:site_name" content="Is Pokémon Go Up?" />
+
       <title>{title}</title>
       {favicon ? <link rel="shortcut icon" href={favicon} /> : null}
       {stylesheet ? <link rel="stylesheet" href={stylesheet} /> : null}
