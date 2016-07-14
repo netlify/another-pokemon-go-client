@@ -49,8 +49,8 @@ export class Home extends React.Component {
   }
 
   fetchStatus() {
-    // const url = "https://is-pokemon-go-up-api-gyzixdmrat.now.sh/?json=true";
-    const url = "http://localhost:5000/?json=true";
+    const url = "https://is-pokemon-go-up-api-gyzixdmrat.now.sh/?json=true";
+    // const url = "http://localhost:5000/?json=true";
     const init = {
       method: "GET",
       headers: {},
@@ -70,10 +70,15 @@ export class Home extends React.Component {
     const {status} = this.state;
 
     return (
-      <div className="Main">
-        <h2>Is Pokémon Go Up?</h2>
-        {status}
-        <img src={gifSelector(status)} />
+      <div className="Home">
+        <div className="title">
+          <h2>Is Pokémon Go Up?</h2>
+          {status}
+        </div>
+        <div className="image">
+          <img src={gifSelector(status)} />
+        </div>
+        {status !== "checking status" && <a href="https://github.com/sotojuan/is-pokemon-go-up"><small>made from open source</small></a>}
       </div>
     );
   }
@@ -97,8 +102,10 @@ export class App extends React.Component {
   render() {
     return (
       <div className={cx("App")}>
-        {this.props.children}
-        <Footer />
+        <div className="content">
+          {this.props.children}
+          <Footer />
+        </div>
       </div>
     );
   }
@@ -108,10 +115,8 @@ export class Footer extends React.Component {
   render() {
     return (
       <div className={cx("Footer")}>
-        <div className="footer__brand">
-          <div className="is-text">Powered<br /> by</div>
-          <div className="is-image"><a href="http://netlify.com"><img src={iso} /></a></div>
-        </div>
+        <p>Powered<br /> by</p>
+        <a href="http://netlify.com"><img src={iso} /></a>
       </div>
     );
   }

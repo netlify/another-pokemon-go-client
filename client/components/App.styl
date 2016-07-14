@@ -18,40 +18,52 @@ h2
   font-weight bold
   color react-blue
 
+small
+  font-size 10px
+
 .App
+  display flex
   background white
   min-width 320px
+  min-height 250px
   padding 20px 100px
 
   p
     color white
 
+  a
+    color rgba(black, .4)
+    font-style italic
+    text-decoration none
+
 .Footer
-  position absolute
-  bottom 1em
-  left 0
-  right 0
-  text-align center
+  align-items center
+  display flex
+  flex-direction row
+  justify-content center
+  padding-top 30px
+  max-height 30px
 
-  img
-    display block
-
-  .is-text
-    display inline-block
+  p
+    padding-top 2em
     vertical-align middle
-    font-size em(10)
+    font-size em(8)
     line-height 1.1
     text-transform uppercase
-    letter-spacing em(2, 10)
-    color black
+    letter-spacing .2em
+    color rgba(black, .4)
     text-align right
+    font-size .5em
 
-  .is-image
-    display inline-block
+  a
     vertical-align middle
     border-left 1px solid rgba(black, .1)
-    margin-left em(2, 10)
-    padding-left em(2, 10)
+    margin-left .5em
+    margin-top 0
+    padding-left .5em
+
+  img
+    max-width 3em
 
 @media (max-width: 500px)
   img
@@ -60,4 +72,8 @@ h2
   .App
     min-width 320px
     padding 20px 10px
+
+  .Footer
+    img
+      max-width 50px
 
