@@ -1,6 +1,7 @@
 import React, {PropTypes} from "react";
 import classnames from "classnames/bind";
 import "normalize.css";
+import iso from "./iso.svg";
 
 // Using CSS Modules so we assign the styles to a variable
 import s from "./App.styl";
@@ -48,8 +49,8 @@ export class Home extends React.Component {
   }
 
   fetchStatus() {
-    // const url = "http://localhost:5000/?json=true";
-    const url = "https://is-pokemon-go-up-api-gyzixdmrat.now.sh/?json=true";
+    // const url = "https://is-pokemon-go-up-api-gyzixdmrat.now.sh/?json=true";
+    const url = "http://localhost:5000/?json=true";
     const init = {
       method: "GET",
       headers: {},
@@ -97,6 +98,20 @@ export class App extends React.Component {
     return (
       <div className={cx("App")}>
         {this.props.children}
+        <Footer />
+      </div>
+    );
+  }
+}
+
+export class Footer extends React.Component {
+  render() {
+    return (
+      <div className={cx("Footer")}>
+        <div className="footer__brand">
+          <div className="is-text">Powered<br /> by</div>
+          <div className="is-image"><a href="http://netlify.com"><img src={iso} /></a></div>
+        </div>
       </div>
     );
   }

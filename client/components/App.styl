@@ -26,6 +26,33 @@ h2
   p
     color white
 
+.Footer
+  position absolute
+  bottom 1em
+  left 0
+  right 0
+  text-align center
+
+  img
+    display block
+
+  .is-text
+    display inline-block
+    vertical-align middle
+    font-size em(10)
+    line-height 1.1
+    text-transform uppercase
+    letter-spacing em(2, 10)
+    color black
+    text-align right
+
+  .is-image
+    display inline-block
+    vertical-align middle
+    border-left 1px solid rgba(black, .1)
+    margin-left em(2, 10)
+    padding-left em(2, 10)
+
 @media (max-width: 500px)
   img
     max-width 300px
@@ -33,3 +60,4 @@ h2
   .App
     min-width 320px
     padding 20px 10px
+

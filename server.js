@@ -2,32 +2,32 @@
  * NOTE: This file must be run with babel-node as Node is not yet compatible
  * with all of ES6 and we also use JSX.
  */
-import url from 'url';
-import React, { PropTypes } from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
-import express from 'express';
-import webpack from 'webpack';
+import url from "url";
+import React, {PropTypes} from "react";
+import {renderToStaticMarkup} from "react-dom/server";
+import express from "express";
+import webpack from "webpack";
 
-import config from './webpack.config.dev.js';
+import config from "./webpack.config.dev.js";
 
 const Html = ({
-  title = 'Rainbow Unicorns',
-  bundle = '/app.js',
-  body = '',
-  favicon = '',
-  stylesheet = '',
+  title = "Is Pokémon Go Up?",
+  bundle = "/app.js",
+  body = "",
+  favicon = "",
+  stylesheet = "",
 }) => (
-  <html lang='en'>
+  <html lang="en">
     <head>
-      <meta charSet='utf-8' />
-      <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
-      <meta name='viewport' content='width=device-width, initial-scale=1' />
+      <meta charSet="utf-8" />
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>{title}</title>
-      {favicon ? <link rel='shortcut icon' href={favicon} /> : null}
-      {stylesheet ? <link rel='stylesheet' href={stylesheet} /> : null}
+      {favicon ? <link rel="shortcut icon" href={favicon} /> : null}
+      {stylesheet ? <link rel="stylesheet" href={stylesheet} /> : null}
     </head>
     <body>
-      <div id='root' dangerouslySetInnerHTML={{ __html: body }} />
+      <div id="root" dangerouslySetInnerHTML={{__html: body}} />
       <script src={bundle} />
     </body>
   </html>
@@ -53,34 +53,34 @@ Html.propTypes = {
  * @return {string}
  */
 const renderDocumentToString = props =>
-  '<!doctype html>' + renderToStaticMarkup(<Html {...props} />);
+  "<!doctype html>" + renderToStaticMarkup(<Html {...props} />);
 
 const app = express();
 const compiler = webpack(config);
 
-app.use(require('webpack-dev-middleware')(compiler, {
+app.use(require("webpack-dev-middleware")(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath,
 }));
 
-app.use(require('webpack-hot-middleware')(compiler));
+app.use(require("webpack-hot-middleware")(compiler));
 
 // Send the boilerplate HTML payload down for all get requests. Routing will be
-// handled entirely client side and we don't make an effort to pre-render pages
+// handled entirely client side and we don"t make an effort to pre-render pages
 // before they are served when in dev mode.
-app.get('*', (req, res) => {
+app.get("*", (req, res) => {
   const html = renderDocumentToString({
-    bundle: config.output.publicPath + 'app.js',
+    bundle: config.output.publicPath + "app.js",
   });
   res.send(html);
 });
 
-// NOTE: url.parse can't handle URLs without a protocol explicitly defined. So
-// if we parse '//localhost:8888' it doesn't work. We manually add a protocol even
+// NOTE: url.parse can"t handle URLs without a protocol explicitly defined. So
+// if we parse "//localhost:8888" it doesn"t work. We manually add a protocol even
 // though we are only interested in the port.
-const { port } = url.parse('http:' + config.output.publicPath);
+const {port} = url.parse("http:" + config.output.publicPath);
 
-app.listen(port, 'localhost', err => {
+app.listen(port, "localhost", err => {
   if (err) {
     console.error(err);
     return;
